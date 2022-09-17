@@ -14,15 +14,18 @@ const AddExpenses = ({ navigation }: { navigation: any }) => {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <KeyboardAvoidingView>
-        <TextInput
-          placeholder="Write description"
+      <View style={{ height:400,width:300,paddingTop:100 }} >
+        <TextInput 
+          style={styles.testStyle}
+          placeholder='Enter Description'
           value={description}
           onChangeText={(text) => {
             setDescription(text);
           }}
         />
         <TextInput
-          placeholder="Enter Amount"
+        placeholder='Enter amount'
+         style={styles.testStyle}
           value={amount}
           onChangeText={(text) => {
             setAmount(text);
@@ -30,11 +33,12 @@ const AddExpenses = ({ navigation }: { navigation: any }) => {
           keyboardType='numeric'
         />
         <Button
-          title="Go to Home"
+          title="Add Expense"
           onPress={() => {
             navigation.navigate("Home", { description: description, amount: amount });
           }}
         />
+        </View>
       </KeyboardAvoidingView>
     </View>
   );
@@ -42,4 +46,16 @@ const AddExpenses = ({ navigation }: { navigation: any }) => {
 
 export default AddExpenses;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  testStyle:{
+  height: 30, 
+  width: "80%" , 
+  borderBottomColor: 'gray',
+  borderBottomWidth:2,
+  marginBottom: 20,
+  marginLeft: 30,
+  paddingLeft:5
+  
+  }
+  
+});
